@@ -217,5 +217,50 @@ namespace MegaEscritorioDesktop
         {
 
         }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void drawerNumber_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void day5(object sender, EventArgs e)
+        {
+
+        }
+
+        private void day3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void day7(object sender, EventArgs e)
+        {
+
+        }
+
+        private void day14(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oak(object sender, EventArgs e)
+        {
+
+        }
+
+        private void laminate(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pine(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -43,18 +43,18 @@
             this.price = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.deskArea = new System.Windows.Forms.Label();
             this.deskDepth = new System.Windows.Forms.NumericUpDown();
             this.deskWidth = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.drawerNumber = new System.Windows.Forms.NumericUpDown();
             this.clickCalculate = new System.Windows.Forms.Button();
             this.priceQuote = new System.Windows.Forms.Label();
             this.quoteDate = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,7 +68,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(45, 9);
+            this.label1.Location = new System.Drawing.Point(68, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(431, 31);
             this.label1.TabIndex = 0;
@@ -83,7 +83,6 @@
             this.label2.Size = new System.Drawing.Size(80, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Desk Width";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -119,7 +118,7 @@
             this.pineMaterial.TabIndex = 2;
             this.pineMaterial.Text = "Pine ";
             this.pineMaterial.UseVisualStyleBackColor = true;
-            this.pineMaterial.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.pineMaterial.CheckedChanged += new System.EventHandler(this.pine);
             // 
             // oakMaterial
             // 
@@ -132,6 +131,7 @@
             this.oakMaterial.TabStop = true;
             this.oakMaterial.Text = "Oak";
             this.oakMaterial.UseVisualStyleBackColor = true;
+            this.oakMaterial.CheckedChanged += new System.EventHandler(this.oak);
             // 
             // laminateMaterial
             // 
@@ -143,7 +143,7 @@
             this.laminateMaterial.TabIndex = 0;
             this.laminateMaterial.Text = "Laminate";
             this.laminateMaterial.UseVisualStyleBackColor = true;
-            this.laminateMaterial.CheckedChanged += new System.EventHandler(this.laminateRadioButton_CheckedChanged);
+            this.laminateMaterial.CheckedChanged += new System.EventHandler(this.laminate);
             // 
             // groupBox2
             // 
@@ -172,6 +172,7 @@
             this.dayFourteen.TabStop = true;
             this.dayFourteen.Text = "14 (Normal production time)";
             this.dayFourteen.UseVisualStyleBackColor = true;
+            this.dayFourteen.CheckedChanged += new System.EventHandler(this.day14);
             // 
             // daySeven
             // 
@@ -184,6 +185,7 @@
             this.daySeven.TabStop = true;
             this.daySeven.Text = "7";
             this.daySeven.UseVisualStyleBackColor = true;
+            this.daySeven.CheckedChanged += new System.EventHandler(this.day7);
             // 
             // dayFive
             // 
@@ -196,7 +198,7 @@
             this.dayFive.TabStop = true;
             this.dayFive.Text = "5";
             this.dayFive.UseVisualStyleBackColor = true;
-            this.dayFive.CheckedChanged += new System.EventHandler(this.day5RadioButton_CheckedChanged);
+            this.dayFive.CheckedChanged += new System.EventHandler(this.day5);
             // 
             // dayThree
             // 
@@ -209,7 +211,7 @@
             this.dayThree.TabStop = true;
             this.dayThree.Text = "3";
             this.dayThree.UseVisualStyleBackColor = true;
-            this.dayThree.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
+            this.dayThree.CheckedChanged += new System.EventHandler(this.day3);
             // 
             // price
             // 
@@ -250,6 +252,26 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "1. Specify the Size (in inches)";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(151, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 17);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Max 100";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(150, 65);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 17);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Max 50";
+            // 
             // deskArea
             // 
             this.deskArea.AutoSize = true;
@@ -264,17 +286,43 @@
             // 
             this.deskDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deskDepth.Location = new System.Drawing.Point(94, 65);
+            this.deskDepth.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.deskDepth.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             this.deskDepth.Name = "deskDepth";
             this.deskDepth.Size = new System.Drawing.Size(51, 23);
             this.deskDepth.TabIndex = 14;
+            this.deskDepth.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // deskWidth
             // 
             this.deskWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deskWidth.Location = new System.Drawing.Point(94, 28);
+            this.deskWidth.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.deskWidth.Name = "deskWidth";
             this.deskWidth.Size = new System.Drawing.Size(51, 23);
             this.deskWidth.TabIndex = 13;
+            this.deskWidth.TabStop = false;
+            this.deskWidth.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.deskWidth.ValueChanged += new System.EventHandler(this.deskWidth_ValueChanged);
             // 
             // label7
@@ -299,6 +347,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "2. Choose Numbers of Drawers";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(59, 29);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 17);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Max 7";
+            // 
             // drawerNumber
             // 
             this.drawerNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -311,6 +369,7 @@
             this.drawerNumber.Name = "drawerNumber";
             this.drawerNumber.Size = new System.Drawing.Size(43, 23);
             this.drawerNumber.TabIndex = 14;
+            this.drawerNumber.ValueChanged += new System.EventHandler(this.drawerNumber_ValueChanged);
             // 
             // clickCalculate
             // 
@@ -343,36 +402,6 @@
             this.quoteDate.Size = new System.Drawing.Size(20, 17);
             this.quoteDate.TabIndex = 16;
             this.quoteDate.Text = "--";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(151, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 17);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Max 100";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(150, 65);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 17);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Max 100";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(59, 29);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 17);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Max 7";
             // 
             // Form1
             // 
